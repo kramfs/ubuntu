@@ -3,13 +3,14 @@ FROM ghcr.io/ublue-os/base:latest
 
 COPY etc /etc
 COPY usr /usr
+COPY .aliases ${USER}/ 
 
 RUN wget https://copr.fedorainfracloud.org/coprs/lyessaadi/blackbox/repo/fedora-37/lyessaadi-blackbox-fedora-37.repo -O /etc/yum.repos.d/lyessaadi-blackbox.repo
 RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/gnome-vrr/repo/fedora-$(rpm -E %fedora)/kylegospo-gnome-vrr-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_kylegospo-gnome-vrr.repo
 RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:kylegospo:gnome-vrr mutter gnome-control-center gnome-control-center-filesystem
 
 RUN rpm-ostree install gnome-shell-extension-appindicator gnome-shell-extension-dash-to-dock yaru-theme \
-    openssl gnome-shell-extension-gsconnect nautilus-gsconnect blackbox-terminal just podman-docker tailscale zsh && \
+    openssl gnome-shell-extension-gsconnect gnome-shell-extension-bluetooth-quick-connect gnome-shell-extension-panel gnome-shell-extension-hidetopbar gnome-shell-extension-vitals gnome-shell-extension-app-menu nautilus-gsconnect blackbox-terminal just podman-docker tailscale zsh && \
     systemctl unmask dconf-update.service && \
     systemctl enable dconf-update.service && \
     systemctl enable rpm-ostree-countme.service && \
@@ -22,8 +23,13 @@ RUN rpm-ostree install gnome-shell-extension-appindicator gnome-shell-extension-
     sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/system.conf && \
     ostree container commit
 
-# K8s tools
+# Install OMZ
+#RUN curl -LO https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUN git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+RUN echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >> ~/.zshrc
 
+# K8s tools
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 RUN chmod +x ./kubectl
 RUN mv ./kubectl /usr/bin/kubectl
