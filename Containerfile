@@ -10,14 +10,14 @@ COPY aliases ${USER}/.aliases
 #RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:kylegospo:gnome-vrr mutter gnome-control-center gnome-control-center-filesystem
 
 RUN rpm-ostree install gnome-shell-extension-appindicator gnome-shell-extension-dash-to-dock yaru-theme \
-    openssl gnome-shell-extension-gsconnect nautilus-gsconnect blackbox-terminal just podman-docker tailscale zsh && \
+    openssl gnome-shell-extension-gsconnect nautilus-gsconnect just podman-docker tailscale zsh && \
     systemctl unmask dconf-update.service && \
     systemctl enable dconf-update.service && \
     systemctl enable rpm-ostree-countme.service && \
     systemctl enable tailscaled.service && \
     fc-cache -f /usr/share/fonts/ubuntu && \
-    rm -f /etc/yum.repos.d/lyessaadi-blackbox.repo && \
-    rm -f /etc/yum.repos.d/_copr_kylegospo-gnome-vrr.repo && \
+#    rm -f /etc/yum.repos.d/lyessaadi-blackbox.repo && \
+#    rm -f /etc/yum.repos.d/_copr_kylegospo-gnome-vrr.repo && \
     rm -f /etc/yum.repos.d/tailscale.repo && \
     sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/user.conf && \
     sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/system.conf && \
