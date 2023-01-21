@@ -78,3 +78,6 @@ style-preference=2
 font='Ubuntu Mono 18'
 window-width=975
 window-height=650
+
+[org/gnome/mutter]
+experimental-features=['scale-monitor-framebuffer']
