@@ -57,7 +57,7 @@ name='gnome-terminal'
 binding='<Control><Alt>u'
 #command='blackbox'
 #command='distrobox-enter --name ubuntu'
-command='gnome-terminal-ubuntu'
+command='gnome-terminal-ubuntu --profile ubuntu'
 name='distrobox-ubuntu'
 
 [org/gnome/settings-daemon/plugins/media-keys]
