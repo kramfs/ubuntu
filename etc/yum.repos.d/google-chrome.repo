@@ -1,0 +1,9 @@
+[google-chrome]
+name=google-chrome
+baseurl=https://dl.google.com/linux/chrome/rpm/stable/x86_64
+enabled=1
+skip_if_unavailable=True
+#type=rpm
+#repo_gpgcheck=0
+gpgcheck=1
+gpgkey=https://dl.google.com/linux/linux_signing_key.pub
