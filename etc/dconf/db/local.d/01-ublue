@@ -3,7 +3,6 @@
 favorite-apps = ['org.mozilla.firefox.desktop', 'org.mozilla.Thunderbird.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Rhythmbox3.desktop', 'org.libreoffice.LibreOffice.writer.desktop', 'org.gnome.Software.desktop', 'yelp.desktop']
 enabled-extensions = ['appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'gsconnect@andyholmes.github.io']
 
-
 # dconf path
 [org/gnome/desktop/background]
 picture-uri='file:///usr/share/backgrounds/ublue.xml'
@@ -47,6 +46,21 @@ background-color='#ffffff'
 background-opacity='0.69999999999999996'
 bolt-support=true
 click-action='focus-or-previews'
+
+[/org/gnome/shell/extensions/vitals/]
+alphabetize=true
+hot-sensors=['_memory_usage_', '_system_load_1m_', '__network-rx_max__', '_processor_usage_', '_processor_frequency_']
+include-static-info=true
+show-temperature=true
+
+[/org/gnome/shell/extensions/bluetooth-quick-connect/]
+bluetooth-auto-power-on=true
+keep-menu-on-toggle=true
+refresh-button-on=true
+show-battery-value-on=true
+
+[/org/gnome/shell/extensions/hidetopbar/]
+mouse-sensitive=true
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
 binding='<Control><Alt>t'
