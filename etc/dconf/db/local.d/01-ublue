@@ -1,7 +1,7 @@
 
 [org/gnome/shell] 
 favorite-apps = ['org.mozilla.firefox.desktop', 'org.mozilla.Thunderbird.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Rhythmbox3.desktop', 'org.libreoffice.LibreOffice.writer.desktop', 'org.gnome.Software.desktop']
-enabled-extensions = ['appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'gsconnect@andyholmes.github.io', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'extension-list@tu.berry', 'clipboard-indicator@tudmotu.com', 'dash-to-panel@jderose9.github.com', 'hidetopbar@mathieu.bidon.ca', 'Vitals@CoreCoding.com', 'bluetooth-quick-connect@bjarosze.gmail.com']
+enabled-extensions = ['appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'gsconnect@andyholmes.github.io']
 
 # dconf path
 #[org/gnome/desktop/background]
