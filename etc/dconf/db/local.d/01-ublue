@@ -49,7 +49,7 @@ click-action='focus-or-previews'
 
 [org/gnome/shell/extensions/vitals]
 alphabetize=true
-hot-sensors = ['_memory_usage_', '_system_load_1m_', '__network-rx_max__', '_processor_usage_', '_processor_frequency_']
+hot-sensors = ['_memory_usage_', '_system_load_1m_', '__network-rx_max__', '_processor_usage_', '_processor_frequency_', '__temperature_avg__']
 include-static-info=true
 show-temperature=true
 
