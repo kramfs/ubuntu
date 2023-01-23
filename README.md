@@ -23,7 +23,7 @@ The endstate is a system as reliable as a Chromebook with near-zero maintainance
 1. After you reboot you should [pin the working deployment](https://docs.fedoraproject.org/en-US/fedora-silverblue/faq/#_about_using_silverblue) so you can safely rollback. 
 1. Open a terminal and rebase the OS to this image:
 
-        sudo rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/ublue-os/ubuntu:latest
+        sudo rpm-ostree rebase --experimental ostree-unverified-registry:ghcr.io/kramfs/ubuntu:latest
         
 1. Reboot the system and you're done!
 
@@ -91,26 +91,4 @@ These are currently unimplemented ideas that we plan on adding:
 
 These images are signed with sisgstore's [cosign](https://docs.sigstore.dev/cosign/overview/). You can verify the signature by downloading the `cosign.pub` key from this repo and running the following command:
 
-    cosign verify --key cosign.pub ghcr.io/ublue-os/ubuntu
-
-## Frequently Asked Questions
-
-What about codecs?
-
-> It's unlikely you'll need extra codecs, Flathub provides everything you need. You might need to [force enable hardware acceleration](https://fedoraproject.org/wiki/Firefox_Hardware_acceleration#Web_page_rendering) in Firefox directly. 
-
-Are you planning on adding more apps and stuff?
-
-> Not really, but I'm hoping to do more images like -gaming, -cloudnative, etc. that derive off of this base image. Once we figure out a way to cleanly split out application installation from the base image we'll split it up to make it easy to customize.
-
-I cancelled the first run thing or it failed, how do I rerun it?
-
-> Running `/usr/bin/ublue-firstboot` will restart the process. You might need to delete `~/.config/ublue/firstboot-done` if you ever want to rerun it again.  
-
-Ugh man why didn't you do nvidia drivers while you're at it?
-
-> I don't have the hardware to test, but you know someone's going to do it, this is really new stuff, part of the reason I am doing this is to show others that this is possible!
-
-Should I trust you?
-
-> This is all hosted, built, and pushed on GitHub. As far as if I'm a trustable fellow, here's my [bio](https://www.ypsidanger.com/about/). If you've made it this far then hopefully you've come to the conclusion on how easy it would be to build all of this on your own trusted machinery. :smile:
+    cosign verify --key cosign.pub ghcr.io/kramfs/ubuntu
