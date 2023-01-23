@@ -13,7 +13,7 @@ enabled-extensions = ['appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@mi
 
 #[org/gnome/desktop/interface]
 #enable-hot-corners=false
-#cursor-theme='Yaru'
+#cursor-theme='Yaru'yaru-theme
 #icon-theme='Yaru'
 #gtk-theme='Yaru'
 #font-antialiasing='rgba'
@@ -47,19 +47,19 @@ background-opacity='0.69999999999999996'
 bolt-support=true
 click-action='focus-or-previews'
 
-[/org/gnome/shell/extensions/vitals/]
+[org/gnome/shell/extensions/vitals]
 alphabetize=true
 hot-sensors = ['_memory_usage_', '_system_load_1m_', '__network-rx_max__', '_processor_usage_', '_processor_frequency_']
 include-static-info=true
 show-temperature=true
 
-[/org/gnome/shell/extensions/bluetooth-quick-connect/]
+[org/gnome/shell/extensions/bluetooth-quick-connect]
 bluetooth-auto-power-on=true
 keep-menu-on-toggle=true
 refresh-button-on=true
 show-battery-value-on=true
 
-[/org/gnome/shell/extensions/hidetopbar/]
+[org/gnome/shell/extensions/hidetopbar]
 mouse-sensitive=true
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
