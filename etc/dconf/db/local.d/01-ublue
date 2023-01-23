@@ -1,7 +1,6 @@
-
-[org/gnome/shell] 
-favorite-apps = ['org.mozilla.firefox.desktop', 'org.mozilla.Thunderbird.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Rhythmbox3.desktop', 'org.libreoffice.LibreOffice.writer.desktop', 'org.gnome.Software.desktop', 'yelp.desktop']
-enabled-extensions = ['appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'gsconnect@andyholmes.github.io']
+[org/gnome/shell]
+favorite-apps = ['org.mozilla.firefox.desktop', 'org.mozilla.Thunderbird.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Rhythmbox3.desktop', 'org.libreoffice.LibreOffice.writer.desktop', 'org.gnome.Software.desktop']
+enabled-extensions = ['appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'gsconnect@andyholmes.github.io', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com', 'extension-list@tu.berry', 'clipboard-indicator@tudmotu.com', 'dash-to-panel@jderose9.github.com', 'hidetopbar@mathieu.bidon.ca', 'Vitals@CoreCoding.com', 'bluetooth-quick-connect@bjarosze.gmail.com']
 
 # dconf path
 [org/gnome/desktop/background]
@@ -49,7 +48,7 @@ click-action='focus-or-previews'
 
 [/org/gnome/shell/extensions/vitals/]
 alphabetize=true
-hot-sensors=['_memory_usage_', '_system_load_1m_', '__network-rx_max__', '_processor_usage_', '_processor_frequency_']
+hot-sensors = ['_memory_usage_', '_system_load_1m_', '__network-rx_max__', '_processor_usage_', '_processor_frequency_']
 include-static-info=true
 show-temperature=true
 
@@ -69,9 +68,7 @@ name='gnome-terminal'
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
 binding='<Control><Alt>u'
-#command='blackbox'
-#command='distrobox-enter --name ubuntu'
-command='gnome-terminal-ubuntu --profile ubuntu'
+command='gnome-terminal --profile ubuntu'
 name='distrobox-ubuntu'
 
 [org/gnome/settings-daemon/plugins/media-keys]
@@ -94,4 +91,4 @@ window-width=975
 window-height=650
 
 [org/gnome/mutter]
-experimental-features=['scale-monitor-framebuffer']
+experimental-features = ['scale-monitor-framebuffer']
