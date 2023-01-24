@@ -1,4 +1,4 @@
-# Install OMZ
+# Install OMZ and Power10K Theme
 if test "$(id -u)" -gt "0" && test -d "$HOME"; then
     if test ! -e "$HOME"/.oh-my-zsh; then
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
