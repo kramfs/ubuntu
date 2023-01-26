@@ -41,8 +41,15 @@ alias k.podsw="minikube kubectl -- get pods -A -o wide"
 alias k.nodes="minikube kubectl -- get nodes"
 alias k.cluster="minikube kubectl -- cluster-info"
 
-# VS CODE
-alias code="flatpak run com.visualstudio.code"
-
 # RUST CLI Utilities
 alias z="zellij"
+
+# TELEPORT
+alias t="tsh"
+alias tssh="tsh ssh"
+alias tapps="tsh apps"
+alias tdb="tsh db"
+alias tk="tsh kube"
+
+# FLATPAK
+alias code="flatpak run com.visualstudio.code"
