@@ -1,5 +1,4 @@
-
-[org/gnome/shell] 
+[org/gnome/shell]
 favorite-apps = ['org.mozilla.firefox.desktop', 'org.mozilla.Thunderbird.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Rhythmbox3.desktop', 'org.libreoffice.LibreOffice.writer.desktop', 'org.gnome.Software.desktop']
 enabled-extensions = ['appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'gsconnect@andyholmes.github.io']
 
@@ -62,15 +61,93 @@ show-battery-value-on=true
 [org/gnome/shell/extensions/hidetopbar]
 mouse-sensitive=true
 
+# KEYBOARD SHORCUTS
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
 binding='<Control><Alt>t'
 command='gnome-terminal'
 name='gnome-terminal'
 
 [org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1]
+binding='<Control><Alt>g'
+command='gnome-terminal --profile gearbox'
+name='distrobox-gearbox'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2]
 binding='<Control><Alt>u'
 command='gnome-terminal --profile ubuntu'
 name='distrobox-ubuntu'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3]
+binding='<Control><Alt>f'
+command='gnome-terminal --profile fedora'
+name='distrobox-fedora'
+
+# GNOME TEMINAL PROFILES
+# gearbox
+[org/gnome/terminal/legacy/profiles:/:3662ef7a-672c-4ad1-b342-d91352a58499]
+background-color='rgb(0,43,54)'
+background-transparency-percent=6
+custom-command='distrobox-enter --name gearbox'
+default-size-columns=120
+default-size-rows=50
+font='MesloLGS NF 11'
+foreground-color='rgb(131,148,150)'
+scroll-on-output=true
+scrollback-unlimited=true
+use-custom-command=true
+use-system-font=false
+use-theme-colors=true
+use-transparent-background=true
+visible-name='gearbox'
+
+# default
+[org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='rgb(0,0,0)'
+background-transparency-percent=5
+default-size-columns=120
+default-size-rows=50
+font='MesloLGS NF 11'
+foreground-color='rgb(170,170,170)'
+scrollback-unlimited=true
+use-system-font=false
+use-theme-colors=false
+use-transparent-background=true
+visible-name='default'
+
+# fedora
+[org/gnome/terminal/legacy/profiles:/:e8218424-eb99-4458-a50a-29a8e14f0538]
+background-color='rgb(11,33,39)'
+background-transparency-percent=6
+custom-command='distrobox-enter --name fedora'
+default-size-columns=120
+default-size-rows=50
+font='MesloLGS NF 11'
+foreground-color='rgb(131,148,150)'
+scroll-on-output=true
+scrollback-unlimited=true
+use-custom-command=true
+use-system-font=false
+use-theme-colors=false
+use-transparent-background=true
+visible-name='fedora'
+
+# ubuntu
+[org/gnome/terminal/legacy/profiles:/:0901af01-2ab7-469b-a656-5c6c9b1111a1]
+ackground-color='rgb(0,43,54)'
+background-transparency-percent=6
+custom-command='distrobox-enter --name ubuntu'
+default-size-columns=120
+default-size-rows=50
+font='MesloLGS NF 11'
+foreground-color='rgb(131,148,150)'
+scroll-on-output=true
+scrollback-unlimited=true
+use-custom-command=true
+use-system-font=false
+use-theme-colors=true
+use-transparent-background=true
+visible-name='ubuntu'
+
 
 [org/gnome/settings-daemon/plugins/media-keys]
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/' ]
