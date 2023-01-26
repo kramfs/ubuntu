@@ -43,3 +43,6 @@ alias k.cluster="minikube kubectl -- cluster-info"
 
 # VS CODE
 alias code="flatpak run com.visualstudio.code"
+
+# RUST CLI Utilities
+alias z="zellij"
