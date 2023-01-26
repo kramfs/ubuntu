@@ -1,6 +1,11 @@
 FROM ghcr.io/ublue-os/base:latest
 # See https://pagure.io/releng/issue/11047 for final location
 
+LABEL com.github.containers.toolbox="true" \
+      usage="This image is meant to be used with rpm-ostree-based system i.e. Fedora Silverblue" \
+      summary="A cloud-native desktop experience" \
+      maintainer="rudelsaldivar@gmail.com>"
+
 COPY etc /etc
 COPY usr /usr
 #COPY --from=ghcr.io/ublue-os/udev-rules etc/udev/rules.d/* /etc/udev/rules.d
