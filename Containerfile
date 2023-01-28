@@ -1,11 +1,10 @@
 FROM ghcr.io/ublue-os/base:latest
 # See https://pagure.io/releng/issue/11047 for final location
 
-LABEL org.opencontainers.image.description="This image is meant to be used with rpm-ostree-based system i.e. Fedora Silverblue"
 LABEL com.github.containers.toolbox="true" \
       usage="This image is meant to be used with rpm-ostree-based system i.e. Fedora Silverblue" \
       summary="A cloud-native desktop experience" \
-      maintainer="rudelsaldivar@gmail.com>"
+      maintainer="rudelsaldivar@gmail.com"
 
 COPY etc /etc
 COPY usr /usr
@@ -20,7 +19,7 @@ RUN rpm-ostree install gnome-shell-extension-appindicator gnome-shell-extension-
     systemctl enable dconf-update.service && \
     systemctl enable rpm-ostree-countme.service && \
 #    systemctl enable tailscaled.service && \
-    fc-cache -f /usr/share/fonts & \
+    fc-cache -f /usr/share/fonts && \
 #    rm -f /etc/yum.repos.d/lyessaadi-blackbox.repo && \
 #    rm -f /etc/yum.repos.d/_copr_kylegospo-gnome-vrr.repo && \
 #    rm -f /etc/yum.repos.d/tailscale.repo &&  \
