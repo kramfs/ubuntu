@@ -48,4 +48,6 @@ RUN curl -LO https://github.com/1player/host-spawn/releases/download/1.4.0/host-
 RUN install host-spawn-x86_64 /usr/bin/host-spawn
 
 # TELEPORT
-RUN curl https://goteleport.com/static/install.sh | bash -s 11.2.3
+#RUN curl https://goteleport.com/static/install.sh | bash -s 11.2.3
+RUN wget -c https://cdn.teleport.dev/teleport-v11.2.3-linux-amd64-bin.tar.gz -O - | tar -xz
+RUN mv -vf ./teleport/{tctl,tsh} /usr/bin/ && rm -Rf ./teleport
