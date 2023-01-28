@@ -46,3 +46,6 @@ RUN install kind-$(uname)-amd64 /usr/bin/kind
 # HOST-SPAWN
 RUN curl -LO https://github.com/1player/host-spawn/releases/download/1.4.0/host-spawn-x86_64
 RUN install host-spawn-x86_64 /usr/bin/host-spawn
+
+# TELEPORT
+RUN curl https://goteleport.com/static/install.sh | bash -s 11.2.3
