@@ -14,7 +14,7 @@ COPY usr /usr
 #RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/gnome-vrr/repo/fedora-$(rpm -E %fedora)/kylegospo-gnome-vrr-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_kylegospo-gnome-vrr.repo
 #RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:kylegospo:gnome-vrr mutter gnome-control-center gnome-control-center-filesystem
 
-RUN rpm-ostree install gnome-shell-extension-appindicator gnome-shell-extension-dash-to-dock gnome-shell-extension-gsconnect nautilus-gsconnect gnome-shell-extension-sound-output-device-chooser gnome-shell-extension-apps-menu gnome-shell-extension-caffeine gnome-shell-extension-places-menu gnome-shell-extension-user-theme openssl blueman bluez-tools just podman-docker zsh htop nvme-cli glances ncdu && \
+RUN rpm-ostree install gnome-shell-extension-appindicator gnome-shell-extension-dash-to-dock gnome-shell-extension-gsconnect nautilus-gsconnect gnome-shell-extension-apps-menu gnome-shell-extension-caffeine gnome-shell-extension-places-menu gnome-shell-extension-user-theme openssl blueman just podman-docker zsh htop nvme-cli glances ncdu && \
     systemctl unmask dconf-update.service && \
     systemctl enable dconf-update.service && \
     systemctl enable rpm-ostree-countme.service && \
