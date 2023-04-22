@@ -1,4 +1,5 @@
-FROM ghcr.io/ublue-os/base:latest
+#FROM ghcr.io/ublue-os/base:latest
+FROM ghcr.io/ublue-os/silverblue-main:latest
 # See https://pagure.io/releng/issue/11047 for final location
 
 LABEL com.github.containers.toolbox="true" \
