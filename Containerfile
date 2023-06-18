@@ -1,6 +1,5 @@
-#FROM ghcr.io/ublue-os/base:latest
-FROM ghcr.io/ublue-os/silverblue-main:38
-# See https://pagure.io/releng/issue/11047 for final location
+#FROM ghcr.io/ublue-os/silverblue-main:38
+FROM ghcr.io/ublue-os/base-main:38
 
 LABEL com.github.containers.toolbox="true" \
       usage="This image is meant to be used with rpm-ostree-based system i.e. Fedora Silverblue" \
@@ -9,12 +8,12 @@ LABEL com.github.containers.toolbox="true" \
 
 COPY etc /etc
 COPY usr /usr
-#COPY --from=ghcr.io/ublue-os/udev-rules etc/udev/rules.d/* /etc/udev/rules.d
 
 #RUN wget https://copr.fedorainfracloud.org/coprs/lyessaadi/blackbox/repo/fedora-37/lyessaadi-blackbox-fedora-37.repo -O /etc/yum.repos.d/lyessaadi-blackbox.repo
 #RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/gnome-vrr/repo/fedora-$(rpm -E %fedora)/kylegospo-gnome-vrr-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_kylegospo-gnome-vrr.repo
 #RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:kylegospo:gnome-vrr mutter gnome-control-center gnome-control-center-filesystem
 
+RUN rpm-ostree cleanup -m && rpm-ostree refresh-md
 RUN rpm-ostree install gnome-shell-extension-appindicator gnome-shell-extension-dash-to-dock gnome-shell-extension-apps-menu gnome-shell-extension-caffeine gnome-shell-extension-places-menu gnome-shell-extension-user-theme openssl blueman just podman-compose podman-docker zsh htop nvme-cli glances ncdu && \
     systemctl unmask dconf-update.service && \
     systemctl enable dconf-update.service && \
@@ -41,7 +40,7 @@ RUN install minikube-linux-amd64 /usr/bin/minikube
 # K8s tools
 COPY --from=cgr.dev/chainguard/kubectl:latest /usr/bin/kubectl /usr/bin/kubectl
 
-RUN curl -LO "https://kind.sigs.k8s.io/dl/v0.17.0/kind-$(uname)-amd64"
+RUN curl -LO "https://kind.sigs.k8s.io/dl/v0.20.0/kind-$(uname)-amd64"
 RUN install kind-$(uname)-amd64 /usr/bin/kind
 
 # HOST-SPAWN
@@ -49,6 +48,6 @@ RUN curl -LO https://github.com/1player/host-spawn/releases/download/1.4.0/host-
 RUN install host-spawn-x86_64 /usr/bin/host-spawn
 
 # TELEPORT
-#RUN curl https://goteleport.com/static/install.sh | bash -s 11.2.3
-RUN wget -c https://cdn.teleport.dev/teleport-v11.2.3-linux-amd64-bin.tar.gz -O - | tar -xz
+#RUN curl https://goteleport.com/static/install.sh | bash -s 13.1.1
+RUN wget -c https://cdn.teleport.dev/teleport-v13.1.1-linux-amd64-bin.tar.gz -O - | tar -xz
 RUN mv -vf ./teleport/{tctl,tsh} /usr/bin/ && rm -Rf ./teleport
